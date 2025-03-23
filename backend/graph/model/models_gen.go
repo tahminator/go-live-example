@@ -2,25 +2,32 @@
 
 package model
 
+import (
+	"time"
+)
+
+type Message struct {
+	ID        string    `json:"id"`
+	Text      string    `json:"text"`
+	CreatedAt time.Time `json:"createdAt"`
+	User      *User     `json:"user"`
+}
+
 type Mutation struct {
 }
 
-type NewTodo struct {
-	Text   string `json:"text"`
-	UserID string `json:"userId"`
+type NewUser struct {
+	DiscordID   string `json:"discordId"`
+	DiscordName string `json:"discordName"`
+	PictureURL  string `json:"pictureUrl"`
 }
 
 type Query struct {
 }
 
-type Todo struct {
-	ID   string `json:"id"`
-	Text string `json:"text"`
-	Done bool   `json:"done"`
-	User *User  `json:"user"`
-}
-
 type User struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+	ID          string `json:"id"`
+	DiscordID   string `json:"discordId"`
+	PictureURL  string `json:"pictureUrl"`
+	DiscordName string `json:"discordName"`
 }
